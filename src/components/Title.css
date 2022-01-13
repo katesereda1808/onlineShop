@@ -1,0 +1,22 @@
+.title {
+    background: #212529;
+    padding: 20px calc(50% - 500px) 10px;
+    color: #FFFFFF;
+    height: 20rem;
+   text-align: center
+}
+
+.slogan{
+    color: #919294;
+}
+
+.header__title {
+    font-family: 'Luckiest Guy', cursive;
+    color: #FFEEDB;
+    font-size: 45px;
+    margin-left: 40px;
+}
+
+
+
+
