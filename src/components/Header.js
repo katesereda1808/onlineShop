@@ -6,7 +6,18 @@ import {Link} from 'react-router-dom';
 // import './Header.css';
 
 class Header extends Component {
-    render() { 
+    state={
+        quantity:0
+    }
+    componentDidMount(){
+        store.subscribe(()=>{
+            const globalState=store.getState();
+            this.setState({quantity:globalState.quantity});
+        })
+    }
+    render() {
+        // let quantity = 0;
+
         return (
             <header className="header">
                 <Navbar bg="light" variant="light" className="navbar navbar-expand-lg">
@@ -39,7 +50,7 @@ class Header extends Component {
                                 <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
                                 </svg>
                                 {/* <img src="./images/cart.svg"/> */}
-                                 Cart
+                                 Cart {this.state.quantity}
                             </Button>
                             </Link>
                             </div>

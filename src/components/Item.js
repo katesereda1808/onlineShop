@@ -3,7 +3,26 @@ import {Card, Button} from "react-bootstrap";
 import store from "./redux/store";
 
 class Item extends Component {
-    addToCart=(id, image, title, price)=>{
+    state={
+        cart:[]
+    }
+    // addToCart=(id, image, title, price)=>{
+    //     store.dispatch({
+    //         type: 'ADD_TO_CART',
+    //         payload: {
+    //             id,
+    //             image,
+    //             title,
+    //             price
+    //         }
+
+    //     })
+    //     let globalStore=store.getState();
+    //     console.log(globalStore.cart)
+
+    // }
+    changeItemsQuantity=(id, image, title, price)=>{
+        console.log('Товар добавлен')
         store.dispatch({
             type: 'ADD_TO_CART',
             payload: {
@@ -12,12 +31,25 @@ class Item extends Component {
                 title,
                 price
             }
-
         })
-        let globalStore=store.getState();
-        console.log(globalStore.cart)
-
     }
+    addToCart=()=>{
+        const cart = this.state.cart;
+        // this.setState({cart: })
+        fetch('https://fakestoreapi.com/carts',{
+              method:"POST",
+              headers: {
+                'Content-Type': 'application/json',
+                },
+              body:JSON.stringify(cart)
+          })
+              .then(res=>res.json())
+              .then(json=>console.log(json))
+              .catch((error) => {
+                    console.error('Error:', error);
+                    });
+        this.changeItemsQuantity(this.props)
+        }
     render(){
         const {id, image, title, price}=this.props
         return(

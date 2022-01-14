@@ -9,14 +9,7 @@ class Items extends Component {
     state={
         items: []
     };
-    addToCart=(id)=>{
-      store.dispatch({
-          type: 'ADD_TO_CART',
-          payload: {
-            id:id,
-          }
-      })
-    }
+
     componentDidMount(){
       fetch('https://fakestoreapi.com/products')
       .then(resp=>{
@@ -45,7 +38,6 @@ class Items extends Component {
                         ))}
                 </Row>
               </Container>
-
             </div>
         );
     }
