@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import {Card, Button} from "react-bootstrap";
-// import store from './redux/store';
-// import './Items.css';
 
 class CartItem extends Component {
     render (){

@@ -16,7 +16,6 @@ class Items extends Component {
         return resp.json();
       })
       .then(data=>{
-        // console.log(data);
         this.setState({items: data});
         console.log(this.state.items);
         console.log(this.state.items[0].id)       
