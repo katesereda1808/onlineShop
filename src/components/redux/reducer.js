@@ -7,7 +7,6 @@ let reducer=(state=initialState,action)=>{
        case 'ADD_TO_CART':
            const addAction=action.payload;
            const cart=[...state.cart];
-           let Itemsquantity=[...state.quantity];
            let added=cart.find(item=>item.id===action.payload.id);
            
 
@@ -15,13 +14,13 @@ let reducer=(state=initialState,action)=>{
         //        return state (1 картинка, количество +1);
         //    }else{
                cart.push(addAction);
-               Itemsquantity=Itemsquantity+1;
+               let increased=state.quantity+1;
                
         //    }
            return {
                ...state,
                cart: cart,
-               quantity: Itemsquantity
+               quantity: increased
            }
 
 
